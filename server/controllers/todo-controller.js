@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.get('/todos/', (req, res) => {
         var todo = mongoose.model('Todo');
         todo.find(function (err, todos) {
-            if (err) return handleError(err);
+            // if (err) return handleError(err);
             res.send(todos);
         })
     });
@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.post('/todos', (req, res) => {
         const body = req.body.todo;
         Todo.create({ text: body.text, deadline: body.deadline }, (err, response) => {
-            if (err) return handleError(err);
+            // if (err) return handleError(err);
             res.send();
         });
     });
